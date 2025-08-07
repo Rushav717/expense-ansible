@@ -61,6 +61,13 @@
       login_password: ExpenseApp@1
       login_host: mysql.rushhav.fun
       target: /app/schema/backend.sql
+  
+  - name: deamon reload and restart the service
+    ansible.builtin.systemd_service:
+     enabled: true
+     state: restarted
+     deamon_reload: true
+     name: backend
 
     
 
