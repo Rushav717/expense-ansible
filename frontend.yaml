@@ -20,7 +20,7 @@
 
   - name: create html directory
     ansible.builtin.file:
-     path: /usr/shar/nginx/html
+     path: /usr/share/nginx/html
      state: directory
 
   - name: download frontend code
@@ -33,6 +33,7 @@
      src: /tmp/frontend.zip
      dest: /usr/share/nginx/html
      remote_src: yes
+     nonetype: none
      
   - name: copy the expense conf file
     ansible.builtin.copy:
