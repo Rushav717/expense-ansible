@@ -33,7 +33,6 @@
      src: /tmp/frontend.zip
      dest: /usr/share/nginx/html
      remote_src: yes
-     nonetype: none
      
   - name: copy the expense conf file
     ansible.builtin.copy:
