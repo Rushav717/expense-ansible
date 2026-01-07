@@ -19,7 +19,6 @@
   - name: create expense user
     ansible.builtin.user:
       name: expense
-      shell: /bin/bash
 
   - name: create app directory with proper ownership
     ansible.builtin.file:
@@ -52,7 +51,6 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
       mode: '0644'
-    notify: restart backend
 
   - name: install python libs
     ansible.builtin.pip:
@@ -69,14 +67,14 @@
       login_password: ExpenseApp@1
       login_host: mysql.rushhav.fun
       target: /app/schema/backend.sql
-
-  handlers:
-  - name: restart backend
-    ansible.builtin.systemd:
-      name: backend
+ 
+  - name: daemon reload and restart service
+    ansible.builtin.systemd_service:
+      enabled: true
       state: restarted
-      enabled: yes
-      daemon_reload: yes
+      daemon_reload: true
+      name: backend
+  
 
 
 
