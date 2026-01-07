@@ -57,7 +57,7 @@
       dest: /etc/systemd/system/backend.service
 
   - name: installing python libraries
-    ansible.builtin.pip:
+    ansible.builtin.yum:
       name: python3-PyMySQL
       executable: present
 
