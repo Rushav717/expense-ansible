@@ -5,13 +5,9 @@
   tasks:
   - name: disable current nodejs
     ansible.builtin.command: dnf module disable nodejs -y
-    args:
-      warn: false
 
   - name: enable nodejs 20
     ansible.builtin.command: dnf module enable nodejs:20 -y
-    args:
-      warn: false
 
   - name: install nodejs and mysql client
     ansible.builtin.package:
