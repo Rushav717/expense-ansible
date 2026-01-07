@@ -3,7 +3,7 @@ Description = Backend Service
 
 [Service]
 User = expense
-Environment=DB_HOST=mysql.rushhav.fun
+Environment=DB_HOST=172.31.19.145
 ExecStart=/usr/bin/node /app/index.js
 SyslogIdentifier=backend
 
