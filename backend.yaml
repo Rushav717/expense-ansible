@@ -69,11 +69,11 @@
   - name: import mysql data
     community.mysql.mysql_db:
       state: import
-      name: expense
-      target: /app/schema/backend.sql
+      name: all
       login_user: root
       login_password: ExpenseApp@1
       login_host: mysql.rushhav.fun
+      target: /app/schema/backend.sql
       
 
   
