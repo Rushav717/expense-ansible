@@ -50,8 +50,6 @@
   - name: install dependencies
     community.general.npm:
       path: /app
-      executable: /opt/nvm/v0.10.1/bin/npm
-      state: present
 
   - name: copy backend service
     ansible.builtin.copy:
