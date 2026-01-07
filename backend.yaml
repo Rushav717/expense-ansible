@@ -69,7 +69,7 @@
   - name: import mysql data
     community.mysql.mysql_db:
       state: import
-      name: all
+      name: expense
       target: /app/schema/backend.sql
       login_user: root
       login_password: ExpenseApp@1
