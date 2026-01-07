@@ -4,7 +4,7 @@ Description = Backend Service
 [Service]
 User = expense
 Environment=DB_HOST=mysql.rushhav.fun
-ExecStart=/bin/node /app/index.js
+ExecStart=/usr/bin/node /app/index.js
 SyslogIdentifier=backend
 
 [Install]
