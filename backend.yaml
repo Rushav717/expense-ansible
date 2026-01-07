@@ -57,9 +57,13 @@
       dest: /etc/systemd/system/backend.service
 
   - name: installing python libraries
-    ansible.builtin.yum:
-      name: python3-PyMySQL
-      executable: present
+    ansible.builtin.pip:
+      name: "{{ item }}"
+      executable: pip3.9
+    loop:
+    - PyMySQL
+    - cryptography
+
 
   - name: import mysql data
     community.mysql.mysql_db:
