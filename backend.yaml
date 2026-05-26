@@ -44,3 +44,12 @@
     ansible.builtin.copy:
       src: backend.service
       dest: /etc/systemd/system/backend.service
+
+  - name: Create a new database with name 'bobdata'
+    community.mysql.mysql_db:
+      name: all
+      state: import #import the schema
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.rushhav.fun
+      target: /app/schema/backend.sql
