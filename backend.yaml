@@ -53,7 +53,7 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
-  - name: Create a new database with name 'bobdata'
+  - name: Loading the schema to database
     community.mysql.mysql_db:
       name: all
       state: import #import the schema
@@ -61,3 +61,10 @@
       login_password: ExpenseApp@1
       login_host: mysql.rushhav.fun
       target: /app/schema/backend.sql
+
+  - name: deamon reload and restart service
+    ansible.builtin.systemd_service:
+      enabled: true
+      state: restarted
+      deamon_reload: true
+      name: backend
